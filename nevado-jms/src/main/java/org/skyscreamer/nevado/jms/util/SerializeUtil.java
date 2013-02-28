@@ -1,13 +1,17 @@
 package org.skyscreamer.nevado.jms.util;
 
-import com.caucho.hessian.io.Hessian2Input;
-import com.caucho.hessian.io.Hessian2Output;
-import org.apache.commons.codec.binary.Base64;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+
+import javax.jms.JMSException;
+
+import org.apache.commons.codec.binary.Base64;
+import org.skyscreamer.nevado.jms.message.NevadoTextMessage;
+
+import com.caucho.hessian.io.Hessian2Input;
+import com.caucho.hessian.io.Hessian2Output;
 
 public class SerializeUtil
 {
@@ -39,11 +43,15 @@ public class SerializeUtil
         return byteArrayOutputStream.toByteArray();
     }
 
-    public static Serializable deserializeFromString(String s) throws IOException
-    {
-        // Initialize buffer and converter
-        byte [] dataBytes = Base64.decodeBase64(s.getBytes("UTF-8"));
-        return deserialize(dataBytes);
+	public static Serializable deserializeFromString(String s) throws IOException {
+		// Arvind -- We are not sending serialized message serializing it
+		NevadoTextMessage textMessage = new NevadoTextMessage();
+		try {
+			textMessage.setText(s);
+		} catch (JMSException e) {
+			throw new IOException(e);
+		}
+		return textMessage;
     }
 
     public static Serializable deserialize(byte[] dataBytes) throws IOException {

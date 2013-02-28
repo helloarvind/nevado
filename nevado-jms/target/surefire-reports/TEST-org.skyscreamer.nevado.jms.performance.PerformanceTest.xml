@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="0" time="0.036" errors="1" skipped="0" tests="1" name="org.skyscreamer.nevado.jms.performance.PerformanceTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="E:\ProgramFiles\Java\jre6\bin"/>
+    <property name="java.vm.version" value="20.10-b01"/>
+    <property name="java.vm.vendor" value="Sun Microsystems Inc."/>
+    <property name="java.vendor.url" value="http://java.sun.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="E:\utsav\GitHub\nevado"/>
+    <property name="java.runtime.version" value="1.6.0_35-b10"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="E:\ProgramFiles\Java\jre6\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\USF344\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="E:\utsav\WS\.metadata\.plugins\org.eclipse.m2e.core\launches\m2conf566814270740398340.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="E:\ProgramFiles\Java\jre6\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;;E:\ProgramFiles\WinMerge;E:\utsav\apache-maven-3.0.4\bin;E:\ProgramFiles\Java\jdk1.6.0_35\bin;C:\Program Files\TortoiseSVN\bin;E:\ProgramFiles\MySQL\MySQLServer5.5\bin;E:\utsav\apache-ant-1.8.4\bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="50.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\USF344"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.specification.version" value="1.6"/>
+    <property name="user.name" value="USF344"/>
+    <property name="java.class.path" value="/E:/utsav/eclipseJunoSR1/configuration/org.eclipse.osgi/bundles/804/1/.cp/jars/plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.0"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="E:\ProgramFiles\Java\jre6"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -s E:\utsav\apache-maven-3.0.4\conf\settings.xml install"/>
+    <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.6.0_35"/>
+    <property name="java.ext.dirs" value="E:\ProgramFiles\Java\jre6\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="E:\ProgramFiles\Java\jre6\lib\resources.jar;E:\ProgramFiles\Java\jre6\lib\rt.jar;E:\ProgramFiles\Java\jre6\lib\jsse.jar;E:\ProgramFiles\Java\jre6\lib\jce.jar;E:\ProgramFiles\Java\jre6\lib\charsets.jar;E:\ProgramFiles\Java\jdk1.6.0_35\jre\endorsed\webservices-api-2.2.1-1.jar"/>
+    <property name="java.vendor" value="Sun Microsystems Inc."/>
+    <property name="maven.home" value="E:\utsav\GitHub\nevado\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase time="0.032" classname="org.skyscreamer.nevado.jms.performance.PerformanceTest" name="testSequence">
+    <error message="/ by zero" type="java.lang.ArithmeticException">java.lang.ArithmeticException: / by zero
+	at org.skyscreamer.nevado.jms.performance.PerformanceTest.testSequence(PerformanceTest.java:31)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:234)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:133)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:188)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:166)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:101)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+</error>
+    <system-out>2012-12-24 13:34:18,597 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 0125bfe5-adfb-4dad-8818-5317ee8dbc27
+2012-12-24 13:34:18,597 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS a65662a6-a48b-4cf8-b5bd-804aee1ee6cb
+2012-12-24 13:34:18,597 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS c2eb4c36-142c-4f89-8d62-bdc89278d95d
+2012-12-24 13:34:18,598 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 38c7009f-a71b-4dcf-8f94-e05acb780139
+2012-12-24 13:34:18,598 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS cd8218c0-da0b-494b-938b-e9f246a919f9
+2012-12-24 13:34:18,598 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS cdd3873c-b25e-47e1-88b0-e1be61f72a9a
+2012-12-24 13:34:18,598 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS aad22d37-2c0a-4dde-926c-9e3f03dde03d
+2012-12-24 13:34:18,598 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 101a6c6e-f7fd-4b58-9360-e30a281cf83d
+2012-12-24 13:34:18,599 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 025a0324-fa1a-48fe-b788-119e2beff0d8
+2012-12-24 13:34:18,599 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS fc9ecec6-5bc0-4880-9f0c-618cfca5a98c
+2012-12-24 13:34:18,599 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 2fae23ad-d992-4b17-9d4c-6bc7090d5755
+2012-12-24 13:34:18,600 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 67627615-2660-485f-a956-929e3323416d
+2012-12-24 13:34:18,600 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS ca76a2fa-96b3-4ebf-8612-5e787d847d61
+2012-12-24 13:34:18,600 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS de816541-fd81-4d9f-9cbf-736a55f49ce7
+2012-12-24 13:34:18,601 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 3be79166-3587-4d9a-b6be-777e37b76173
+2012-12-24 13:34:18,601 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 8f930bc8-5eaf-4f00-a8c0-5c712fc6068c
+2012-12-24 13:34:18,602 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 5afc9e54-6b63-4c74-aca8-c2b4e7cb59ef
+2012-12-24 13:34:18,602 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 8acc8cd9-7936-4b3a-9173-89ad9cc8994f
+2012-12-24 13:34:18,602 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 398f8640-f432-4c89-a787-42f814e25a2d
+2012-12-24 13:34:18,603 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS f21621c9-d248-4b14-8ab8-b48db8cf0d7f
+2012-12-24 13:34:18,603 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS a47aded1-bf81-4c88-be26-0ec92a3fcc6b
+2012-12-24 13:34:18,603 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS ab552707-3a9f-4e4f-a417-8034e4edc69f
+2012-12-24 13:34:18,603 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 752c97b1-a5ac-4edd-8819-bf2a63bc4f5a
+2012-12-24 13:34:18,604 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 6c70c945-ee2c-4a01-b0cc-f4f20558d71c
+2012-12-24 13:34:18,604 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 3a472eb4-e592-436f-ac36-5b232650ca80
+2012-12-24 13:34:18,604 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 5bfe9c68-ffae-4c36-881c-be74597c99d2
+2012-12-24 13:34:18,604 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS e71b02f6-31d5-4f0d-8c9a-8ecc95056df9
+2012-12-24 13:34:18,605 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 115d4639-6823-48e3-8334-29124d8eb34a
+2012-12-24 13:34:18,605 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS e26074a5-39ab-41d7-96a8-3972b0036f02
+2012-12-24 13:34:18,605 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS d0a94b44-88bd-41a9-88e0-c277e5a8f2cf
+2012-12-24 13:34:18,605 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS d5e3f741-7dba-4c94-b910-7f2ad5d0704a
+2012-12-24 13:34:18,606 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 9dc0f81f-6617-41f0-bc48-0e6da6073f6c
+2012-12-24 13:34:18,606 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS a6d03495-f684-4180-a9ae-641054af65c5
+2012-12-24 13:34:18,606 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS b093a198-7517-40e2-9ff3-4ccaef247bb6
+2012-12-24 13:34:18,606 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 97554dea-273d-4945-a0b9-ed01bb668f77
+2012-12-24 13:34:18,606 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS e8389e2c-15d9-4257-8c7c-6827e5f5cdce
+2012-12-24 13:34:18,607 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 2af82d71-4c47-4c29-badb-44ede2f9963b
+2012-12-24 13:34:18,607 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 4c73b92f-0242-4222-a747-54d955f9e2e9
+2012-12-24 13:34:18,607 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 4173c566-9b9e-445a-8229-5d960fb78a91
+2012-12-24 13:34:18,607 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS bfc96d05-6214-45b9-a071-47e29b6a0d1a
+2012-12-24 13:34:18,607 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 0e1de81f-40d5-4cc2-bc5c-6b54039f4023
+2012-12-24 13:34:18,608 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS bce30bd1-08d9-4d0a-b18a-9a359918304e
+2012-12-24 13:34:18,608 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 2a189390-c8ea-4ace-9ca8-f992e2732bce
+2012-12-24 13:34:18,608 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS edd5828a-8b27-46aa-8101-82ab45fa2024
+2012-12-24 13:34:18,608 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS c2e047e6-26c1-4996-8dc6-f1fb4e41949f
+2012-12-24 13:34:18,608 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 72f679ba-2554-4e97-843f-a0c1c9e29a6c
+2012-12-24 13:34:18,609 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 100b930c-f084-4dba-9cd9-62a963c5a1d9
+2012-12-24 13:34:18,609 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 888ac96d-1845-4925-9c61-429f9e381d5c
+2012-12-24 13:34:18,609 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 15627e88-d824-4788-96ed-b05820614320
+2012-12-24 13:34:18,609 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS dc0d6f37-d5ab-41a5-82a3-28414ed0082e
+2012-12-24 13:34:18,610 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 01862d9e-47a1-4a01-acf8-367f4b23de25
+2012-12-24 13:34:18,610 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 7323c9a2-5ed8-4d08-891f-576cfc5ca98f
+2012-12-24 13:34:18,610 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 7e0846cf-7089-4256-9b26-db394f3b54f2
+2012-12-24 13:34:18,610 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 2084e750-e45f-433a-924b-6b654ee02fec
+2012-12-24 13:34:18,610 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS f674ce99-2fe3-4803-962e-6c9e07c580fe
+2012-12-24 13:34:18,611 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 02b0d16d-601d-4603-8a7b-1503118ae3bd
+2012-12-24 13:34:18,611 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS eb4664b6-38af-4b38-a31d-11a969fdd8fd
+2012-12-24 13:34:18,611 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 9b921bc0-12a7-4ce9-88dc-e4b17ea25c67
+2012-12-24 13:34:18,611 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS a403afea-3fce-42cc-9113-aa245f5b9da2
+2012-12-24 13:34:18,611 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 51a37fe2-9db5-44f2-9d91-a8081896d1ca
+2012-12-24 13:34:18,612 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS e8d8c724-33d8-45cf-9b8a-adcd92dd1be4
+2012-12-24 13:34:18,612 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 47bfadd2-b574-4346-8e26-93c499aeba4c
+2012-12-24 13:34:18,612 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS bd4c32cf-1be2-4e15-9a08-b55282582baf
+2012-12-24 13:34:18,612 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 08884b00-ef28-432f-ae4e-a110730b1b91
+2012-12-24 13:34:18,613 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 7ddbcab5-f392-41c3-a149-7cfa014b011e
+2012-12-24 13:34:18,613 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 1758bd49-98b5-44e2-8bd9-9a0235a99b2b
+2012-12-24 13:34:18,613 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS a2ed6853-100e-4a64-8fa5-b51ed86d1cd1
+2012-12-24 13:34:18,613 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 78d5301e-cb73-40e3-90a0-cb9cd3ae42cb
+2012-12-24 13:34:18,613 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 072594ac-6d9c-43fb-9b68-45f25743f588
+2012-12-24 13:34:18,614 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 782d0793-f20f-4cc8-8535-37cb9b3577ff
+2012-12-24 13:34:18,614 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS ebcd8bb1-40fa-44c6-b623-3bb0e4407cf4
+2012-12-24 13:34:18,614 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS d133c66d-fffc-441c-af5e-5d3700975f5c
+2012-12-24 13:34:18,615 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 84d06625-c019-46a4-8510-61b49223cda3
+2012-12-24 13:34:18,615 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS b340cfd4-28d3-4f67-ad69-d3410cb3276c
+2012-12-24 13:34:18,615 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS c821e800-2df2-4230-8b93-128bbe2e0dfc
+2012-12-24 13:34:18,616 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 64a89eac-0684-4ab8-92c9-a308ec950449
+2012-12-24 13:34:18,616 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS b0b7e696-d7c5-4068-89b6-d52b9536c6a2
+2012-12-24 13:34:18,616 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 62b99e84-c739-45be-b603-fe4145f395e0
+2012-12-24 13:34:18,616 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 3ba69c33-9e89-441a-80e5-4fa0853d9f50
+2012-12-24 13:34:18,617 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 7000cbe7-407f-4c1f-b659-e479de90f1dc
+2012-12-24 13:34:18,617 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 754e636b-82ca-4164-9042-c152466ee3ab
+2012-12-24 13:34:18,617 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 6176ad4b-5684-4210-b3a4-9dc7f74d3133
+2012-12-24 13:34:18,617 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS e03cba8c-033d-4a86-959e-dc909ad9dcaa
+2012-12-24 13:34:18,618 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS d3e15235-f2c8-41fd-96c0-0845b0c8fd28
+2012-12-24 13:34:18,618 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 5c3223d3-835a-4c8c-9362-6e9461f83006
+2012-12-24 13:34:18,618 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS dc135087-afc0-4641-90cd-b9b50a69346d
+2012-12-24 13:34:18,618 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS e4ad7d91-8595-479d-a275-a6eebbb2c025
+2012-12-24 13:34:18,618 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS e51cb74d-b99a-4cd8-a5a7-f05d39d8f393
+2012-12-24 13:34:18,619 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 43729718-62bf-47c2-af99-4211e27be63b
+2012-12-24 13:34:18,619 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 4c842093-64d2-4afb-ab06-09efd2f888d2
+2012-12-24 13:34:18,619 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 508deb8f-fc25-4a94-b37e-afdb7f71e41f
+2012-12-24 13:34:18,619 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS f1353da6-64b4-4096-9c11-8137519adc98
+2012-12-24 13:34:18,619 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 34cadf16-3c9a-47de-9145-7eca91962a0e
+2012-12-24 13:34:18,620 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 3a9f148d-deb0-47ae-9dfe-77cfcb7ba62d
+2012-12-24 13:34:18,620 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS ab490be7-3608-4fbf-8dbf-3bce417f1e8e
+2012-12-24 13:34:18,620 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 2a05f0e4-378c-4817-849b-0977b5482729
+2012-12-24 13:34:18,620 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 7d851ebc-a22c-4e5c-b831-f8c17a0fcd6d
+2012-12-24 13:34:18,620 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 3dbf9761-f432-4543-abfe-7e86205b726d
+2012-12-24 13:34:18,621 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 9c534199-a9fc-46b1-80ed-8d6cf1f348b9
+2012-12-24 13:34:18,621 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS fe75ed3f-bc0e-4cfe-b58e-dfd4f47a1872
+2012-12-24 13:34:18,622 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Received message 0125bfe5-adfb-4dad-8818-5317ee8dbc27
+2012-12-24 13:34:18,624 INFO  org.skyscreamer.nevado.jms.performance.PerformanceTest - Sent 100 messages in 27 ms for an average of 0 ms/msg (including an introduced delay of 0 ms)
+</system-out>
+    <system-err>Exception in thread &quot;Thread-52406&quot; java.lang.ClassCastException: org.skyscreamer.nevado.jms.message.InvalidMessage cannot be cast to javax.jms.ObjectMessage
+	at org.skyscreamer.nevado.jms.performance.PerformanceService.receiveMessages(PerformanceService.java:184)
+	at org.skyscreamer.nevado.jms.performance.PerformanceService.access$1(PerformanceService.java:175)
+	at org.skyscreamer.nevado.jms.performance.PerformanceService$1.run(PerformanceService.java:80)
+	at java.lang.Thread.run(Unknown Source)
+</system-err>
+  </testcase>
+</testsuite>

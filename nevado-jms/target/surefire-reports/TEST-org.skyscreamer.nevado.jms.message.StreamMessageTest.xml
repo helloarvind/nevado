@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="0" time="0.187" errors="4" skipped="0" tests="73" name="org.skyscreamer.nevado.jms.message.StreamMessageTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="E:\ProgramFiles\Java\jre6\bin"/>
+    <property name="java.vm.version" value="20.10-b01"/>
+    <property name="java.vm.vendor" value="Sun Microsystems Inc."/>
+    <property name="java.vendor.url" value="http://java.sun.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="E:\utsav\GitHub\nevado"/>
+    <property name="java.runtime.version" value="1.6.0_35-b10"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="E:\ProgramFiles\Java\jre6\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\USF344\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="E:\utsav\WS\.metadata\.plugins\org.eclipse.m2e.core\launches\m2conf566814270740398340.tmp"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="E:\ProgramFiles\Java\jre6\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\WIDCOMM\Bluetooth Software\syswow64;;E:\ProgramFiles\WinMerge;E:\utsav\apache-maven-3.0.4\bin;E:\ProgramFiles\Java\jdk1.6.0_35\bin;C:\Program Files\TortoiseSVN\bin;E:\ProgramFiles\MySQL\MySQLServer5.5\bin;E:\utsav\apache-ant-1.8.4\bin;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="50.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\USF344"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.specification.version" value="1.6"/>
+    <property name="user.name" value="USF344"/>
+    <property name="java.class.path" value="/E:/utsav/eclipseJunoSR1/configuration/org.eclipse.osgi/bundles/804/1/.cp/jars/plexus-classworlds-2.4.jar"/>
+    <property name="java.vm.specification.version" value="1.0"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="E:\ProgramFiles\Java\jre6"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -s E:\utsav\apache-maven-3.0.4\conf\settings.xml install"/>
+    <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.6.0_35"/>
+    <property name="java.ext.dirs" value="E:\ProgramFiles\Java\jre6\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="E:\ProgramFiles\Java\jre6\lib\resources.jar;E:\ProgramFiles\Java\jre6\lib\rt.jar;E:\ProgramFiles\Java\jre6\lib\jsse.jar;E:\ProgramFiles\Java\jre6\lib\jce.jar;E:\ProgramFiles\Java\jre6\lib\charsets.jar;E:\ProgramFiles\Java\jdk1.6.0_35\jre\endorsed\webservices-api-2.2.1-1.jar"/>
+    <property name="java.vendor" value="Sun Microsystems Inc."/>
+    <property name="maven.home" value="E:\utsav\GitHub\nevado\EMBEDDED"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase time="0.018" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="testMessageNotWritableException">
+    <error message="Unexpected exception, expected&lt;javax.jms.MessageNotWriteableException&gt; but was&lt;java.lang.ClassCastException&gt;" type="java.lang.Exception">java.lang.Exception: Unexpected exception, expected&lt;javax.jms.MessageNotWriteableException&gt; but was&lt;java.lang.ClassCastException&gt;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:234)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:133)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:188)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:166)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:101)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+Caused by: java.lang.ClassCastException: org.skyscreamer.nevado.jms.message.InvalidMessage cannot be cast to javax.jms.StreamMessage
+	at org.skyscreamer.nevado.jms.message.StreamMessageTest.testMessageNotWritableException(StreamMessageTest.java:25)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:21)
+	... 28 more
+</error>
+    <system-out>2012-12-24 13:34:18,314 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 0b0e785d-68b7-4847-972b-874c12c6a4aa
+2012-12-24 13:34:18,314 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Received message 0b0e785d-68b7-4847-972b-874c12c6a4aa
+</system-out>
+  </testcase>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="testMessageNotReadableException"/>
+  <testcase time="0.003" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="testMessageEOF">
+    <error message="Unexpected exception, expected&lt;javax.jms.MessageEOFException&gt; but was&lt;java.lang.ClassCastException&gt;" type="java.lang.Exception">java.lang.Exception: Unexpected exception, expected&lt;javax.jms.MessageEOFException&gt; but was&lt;java.lang.ClassCastException&gt;
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:28)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:234)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:133)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:188)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:166)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:101)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+Caused by: java.lang.ClassCastException: org.skyscreamer.nevado.jms.message.InvalidMessage cannot be cast to javax.jms.StreamMessage
+	at org.skyscreamer.nevado.jms.message.StreamMessageTest.testMessageEOF(StreamMessageTest.java:54)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:21)
+	... 28 more
+</error>
+    <system-out>2012-12-24 13:34:18,317 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 22beb769-d550-48b7-9db2-5f11b959e33a
+2012-12-24 13:34:18,317 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Received message 22beb769-d550-48b7-9db2-5f11b959e33a
+</system-out>
+  </testcase>
+  <testcase time="0.003" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="testStreamMessage">
+    <error message="org.skyscreamer.nevado.jms.message.InvalidMessage cannot be cast to javax.jms.StreamMessage" type="java.lang.ClassCastException">java.lang.ClassCastException: org.skyscreamer.nevado.jms.message.InvalidMessage cannot be cast to javax.jms.StreamMessage
+	at org.skyscreamer.nevado.jms.message.StreamMessageTest.testStreamMessage(StreamMessageTest.java:98)
+	at org.skyscreamer.nevado.jms.message.StreamMessageTest.testStreamMessage(StreamMessageTest.java:41)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:234)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:133)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:188)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:166)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:101)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+</error>
+    <system-out>2012-12-24 13:34:18,320 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 10827084-ef12-4a07-8dce-bd633f0a40ca
+2012-12-24 13:34:18,321 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Received message 10827084-ef12-4a07-8dce-bd633f0a40ca
+</system-out>
+  </testcase>
+  <testcase time="0.003" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ybFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="sbFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="cbFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ibFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="lbFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="fbFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="dbFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zbFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="byFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="syFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="cyFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="iyFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="lyFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="fyFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="dyFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zyFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="bhFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="chFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ihFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="lhFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="fhFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="dhFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zhFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="bcFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ycFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="hcFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="icFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="lcFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="fcFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="dcFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="scFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zcFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="biFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ciFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="liFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="fiFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="diFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ziFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="blFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="clFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="dlFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="flFail"/>
+  <testcase time="0.007" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zlFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="bfFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="yfFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="hfFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="cfFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ifFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="lfFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="dfFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zfFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="bdFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ydFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="hdFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="cdFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="idFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="ldFail"/>
+  <testcase time="0.05" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zdFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="zsFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="bzFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="yzFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="hzFail"/>
+  <testcase time="0" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="czFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="izFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="lzFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="fzFail"/>
+  <testcase time="0.001" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="dzFail"/>
+  <testcase time="0.002" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="szFail"/>
+  <testcase time="0.018" classname="org.skyscreamer.nevado.jms.message.StreamMessageTest" name="testAlienStreamMessage">
+    <error message="org.skyscreamer.nevado.jms.message.InvalidMessage cannot be cast to javax.jms.StreamMessage" type="java.lang.ClassCastException">java.lang.ClassCastException: org.skyscreamer.nevado.jms.message.InvalidMessage cannot be cast to javax.jms.StreamMessage
+	at org.skyscreamer.nevado.jms.message.StreamMessageTest.testStreamMessage(StreamMessageTest.java:98)
+	at org.skyscreamer.nevado.jms.message.StreamMessageTest.testAlienStreamMessage(StreamMessageTest.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:74)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:82)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:72)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:240)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:193)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:52)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:191)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:42)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:184)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:236)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:180)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:234)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:133)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:114)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:188)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:166)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:86)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:101)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:74)
+</error>
+    <system-out>2012-12-24 13:34:18,465 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Sent message to SQS 53b9a03f-eb8d-4316-95db-6769e4c95bfd
+2012-12-24 13:34:18,465 INFO  org.skyscreamer.nevado.jms.connector.mock.MockSQSConnector - Received message 53b9a03f-eb8d-4316-95db-6769e4c95bfd
+</system-out>
+  </testcase>
+</testsuite>
