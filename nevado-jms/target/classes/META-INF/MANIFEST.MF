@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Built-By: USF344
-Build-Jdk: 1.6.0_35
-Implementation-Version: 1.1.1-SNAPSHOT
-Implementation-Title: Nevado JMS
-Created-By: Maven Integration for Eclipse
-
