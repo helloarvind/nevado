@@ -4,8 +4,6 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.jms.Connection;
-import javax.jms.ExceptionListener;
-import javax.jms.JMSException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -21,7 +19,7 @@ public class AsyncConsumerRunner implements Runnable {
   private final Connection _connection;
   private final Set<NevadoMessageConsumer> _asyncConsumers = new CopyOnWriteArraySet<NevadoMessageConsumer>();
   private volatile boolean _running = false;
-  private final BackoffSleeper _sleeper = new BackoffSleeper(1000, 60000, 2);
+  private final BackoffSleeper _sleeper = new BackoffSleeper(1000, 60000, 1.5);
   private Thread runner;
 
   protected AsyncConsumerRunner(Connection connection) {
@@ -71,17 +69,18 @@ public class AsyncConsumerRunner implements Runnable {
       } catch (Throwable t) {
         String errorMessage = "Unable to process message for consumer on " + consumer.getDestination();
         _log.error(errorMessage, t);
-        ExceptionListener exceptionListener = null;
-        try {
-          exceptionListener = _connection.getExceptionListener();
-        } catch (JMSException e1) {
-          _log.error("Unable to retrieve exception listener from connection", e1);
-        }
-        if (exceptionListener != null) {
-          JMSException e = (t instanceof JMSException) ? (JMSException) t : new JMSException(errorMessage + ": "
-              + t.getMessage());
-          exceptionListener.onException(e);
-        }
+        // Disable the Notification of connection problem to user
+        /* ExceptionListener exceptionListener = null;
+         try {
+           exceptionListener = _connection.getExceptionListener();
+         } catch (JMSException e1) {
+           _log.error("Unable to retrieve exception listener from connection", e1);
+         }
+         if (exceptionListener != null) {
+           JMSException e = (t instanceof JMSException) ? (JMSException) t : new JMSException(errorMessage + ": "
+               + t.getMessage());
+           exceptionListener.onException(e);
+         }*/
       }
     }
     return messageProcessed;
