@@ -409,8 +409,7 @@ public class NevadoSession implements Session {
     }
 
     protected NevadoMessage receiveMessage(NevadoDestination destination, long timeoutMs, boolean noLocal)
-            throws JMSException
-    {
+            throws JMSException, InterruptedException {
         testBreak();
         long startTime = System.currentTimeMillis();
         NevadoMessage message = null;
@@ -448,8 +447,7 @@ public class NevadoSession implements Session {
     }
 
     private NevadoMessage getUnfilteredMessage(NevadoDestination destination, long timeoutMs)
-            throws JMSException
-    {
+            throws JMSException, InterruptedException {
         NevadoMessage message = null;
 
         // First check the holder in case there was a recover or rollback
@@ -570,14 +568,14 @@ public class NevadoSession implements Session {
         _asyncConsumerRunner.start();
     }
 
-    protected synchronized void stop() throws JMSException
+    protected synchronized void stop()
     {
         try {
             _asyncConsumerRunner.stop();
         } catch (InterruptedException e) {
             String exMessage = "Session threads may not have closed yet: " + e.getMessage();
-            _log.error(exMessage, e);
-            throw new JMSException(exMessage);
+            _log.warn(exMessage, e);
+            Thread.currentThread().interrupt();
         }
     }
 

@@ -8,6 +8,7 @@ import org.skyscreamer.nevado.jms.destination.*;
 
 import javax.jms.*;
 import javax.jms.IllegalStateException;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -19,6 +20,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author Carter Page <carter@skyscreamer.org>
  */
 public class NevadoConnection implements Connection {
+    public static final int DEFAULT_MAX_POLL_WAIT_MS = 5000;
     private final Log _log = LogFactory.getLog(getClass());
 
     private final AtomicBoolean _closed = new AtomicBoolean(false);
@@ -34,6 +36,9 @@ public class NevadoConnection implements Connection {
     private volatile ExceptionListener _exceptionListener;
     private final List<NevadoSession> _sessions = new CopyOnWriteArrayList<NevadoSession>();
     private final Set<NevadoDestination> _temporaryDestinations = new CopyOnWriteArraySet<NevadoDestination>();
+    private String _temporaryQueueSuffix = "";
+    private String _temporaryTopicSuffix = "";
+    private long _maxPollWaitMs = DEFAULT_MAX_POLL_WAIT_MS;
 
     public NevadoConnection(SQSConnector sqsConnector) throws JMSException {
         _sqsConnector = sqsConnector;
@@ -110,9 +115,16 @@ public class NevadoConnection implements Connection {
         synchronized (_closed) {
             if (!_closed.get()) {
                 stop();
+                List<JMSException> sessionExceptions = new ArrayList<JMSException>();
                 for(NevadoSession session : _sessions)
                 {
-                    session.close();
+                    try {
+                        session.close();
+                    } catch (JMSException e) {
+                        sessionExceptions.add(e);
+                        _log.warn("Caught exception closing a session.  Will continue trying to clean up, then will " +
+                                "throw it up the stack.  (First one if multiple.)", e);
+                    }
                 }
                 for(NevadoDestination temporaryDestination : new ArrayList<NevadoDestination>(_temporaryDestinations)) {
                     try {
@@ -137,6 +149,9 @@ public class NevadoConnection implements Connection {
                 }
                 _temporaryDestinations.clear();
                 _closed.set(true);
+                if (sessionExceptions.size() > 0) {
+                    throw sessionExceptions.get(0);
+                }
             }
         }
     }
@@ -157,8 +172,10 @@ public class NevadoConnection implements Connection {
 
     protected NevadoTemporaryTopic createTemporaryTopic() throws JMSException {
         checkClosed();
-        String tempTopicName = "" + NevadoProviderQueuePrefix.TEMPORARY_DESTINATION_PREFIX + UUID.randomUUID();
+        String tempTopicName = "" + NevadoProviderQueuePrefix.TEMPORARY_DESTINATION_PREFIX
+                + new BigInteger(64, new Random()).toString(Character.MAX_RADIX) + _temporaryTopicSuffix;
         NevadoTopic topic = getSQSConnector().createTopic(tempTopicName);
+        _log.info("Created temporary topic " + tempTopicName);
         NevadoTemporaryTopic temporaryTopic = new NevadoTemporaryTopic(this, topic);
         _temporaryDestinations.add(temporaryTopic);
         return temporaryTopic;
@@ -179,8 +196,10 @@ public class NevadoConnection implements Connection {
     protected NevadoTemporaryQueue createTemporaryQueue() throws JMSException
     {
         checkClosed();
-        String tempQueueName = "" + NevadoProviderQueuePrefix.TEMPORARY_DESTINATION_PREFIX + UUID.randomUUID();
+        String tempQueueName = "" + NevadoProviderQueuePrefix.TEMPORARY_DESTINATION_PREFIX
+                + new BigInteger(64, new Random()).toString(Character.MAX_RADIX) + _temporaryQueueSuffix;
         NevadoQueue queue = getSQSConnector().createQueue(tempQueueName);
+        _log.info("Created temporary queue " + tempQueueName);
         NevadoTemporaryQueue temporaryQueue = new NevadoTemporaryQueue(this, queue);
         _temporaryDestinations.add(temporaryQueue);
         return temporaryQueue;
@@ -203,24 +222,52 @@ public class NevadoConnection implements Connection {
         return _temporaryDestinations.contains(temporaryDestination);
     }
 
-    public Collection<TemporaryQueue> listAllTemporaryQueues() throws JMSException {
+    public Collection<NevadoTemporaryQueue> listAllTemporaryQueues() throws JMSException {
         Collection<NevadoQueue> queues = getSQSConnector()
                 .listQueues(NevadoProviderQueuePrefix.TEMPORARY_DESTINATION_PREFIX + "");
-        Collection<TemporaryQueue> temporaryQueues = new HashSet<TemporaryQueue>(queues.size());
+        Collection<NevadoTemporaryQueue> temporaryQueues = new HashSet<NevadoTemporaryQueue>(queues.size());
         for(NevadoQueue queue : queues) {
             temporaryQueues.add(new NevadoTemporaryQueue(this, queue));
         }
         return temporaryQueues;
     }
 
-    public Collection<TemporaryTopic> listAllTemporaryTopics() throws JMSException {
+    public Collection<NevadoTemporaryTopic> listAllTemporaryTopics() throws JMSException {
         Collection<NevadoTopic> topics = getSQSConnector().listTopics();
-        Collection<TemporaryTopic> temporaryTopics = new HashSet<TemporaryTopic>(topics.size());
+        Collection<NevadoTemporaryTopic> temporaryTopics = new HashSet<NevadoTemporaryTopic>(topics.size());
         for(NevadoTopic topic : topics) {
             if (topic.getTopicName().startsWith(NevadoProviderQueuePrefix.TEMPORARY_DESTINATION_PREFIX + ""))
                 temporaryTopics.add(new NevadoTemporaryTopic(this, topic));
         }
         return temporaryTopics;
+    }
+
+    public Collection<NevadoTemporaryQueue> deleteUnusedTemporaryQueues(String suffix) throws JMSException {
+        if (suffix == null)
+            suffix = "";
+        Collection<NevadoTemporaryQueue> allQueues = listAllTemporaryQueues();
+        List<NevadoTemporaryQueue> deletedQueues = new ArrayList<NevadoTemporaryQueue>();
+        for (NevadoTemporaryQueue queue : allQueues) {
+            if (queue.getQueueName().endsWith(suffix) && !_temporaryDestinations.contains(queue)) {
+                deleteTemporaryQueue(queue);
+                deletedQueues.add(queue);
+            }
+        }
+        return deletedQueues;
+    }
+
+    public Collection<NevadoTemporaryTopic> deleteUnusedTemporaryTopics(String suffix) throws JMSException {
+        if (suffix == null)
+            suffix = "";
+        Collection<NevadoTemporaryTopic> allTopics = listAllTemporaryTopics();
+        List<NevadoTemporaryTopic> deletedTopics = new ArrayList<NevadoTemporaryTopic>();
+        for (NevadoTemporaryTopic topic : allTopics) {
+            if (topic.getTopicName().endsWith(suffix) && !_temporaryDestinations.contains(topic)) {
+                deleteTemporaryTopic(topic);
+                deletedTopics.add(topic);
+            }
+        }
+        return deletedTopics;
     }
 
     public String subscribe(NevadoTopic topic, NevadoQueue topicEndpoint) throws JMSException {
@@ -275,6 +322,22 @@ public class NevadoConnection implements Connection {
     public void setOverrideJMSTTL(Long jmsTTL) throws IllegalStateException {
         checkClosed();
         _jmsTTL = jmsTTL;
+    }
+
+    public void setTemporaryQueueSuffix(String temporaryQueueSuffix) {
+        _temporaryQueueSuffix = temporaryQueueSuffix;
+    }
+
+    public void setTemporaryTopicSuffix(String temporaryTopicSuffix) {
+        _temporaryTopicSuffix = temporaryTopicSuffix;
+    }
+
+    public void setMaxPollWaitMs(long maxPollWaitMs) {
+        _maxPollWaitMs = maxPollWaitMs;
+    }
+
+    protected long getMaxPollWaitMs() {
+        return _maxPollWaitMs;
     }
 
     public boolean isRunning() {

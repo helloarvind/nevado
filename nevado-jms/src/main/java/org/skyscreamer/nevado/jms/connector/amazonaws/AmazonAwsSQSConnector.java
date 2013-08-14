@@ -7,9 +7,12 @@ import com.amazonaws.Protocol;
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.sns.AmazonSNS;
+import com.amazonaws.services.sns.AmazonSNSAsync;
+import com.amazonaws.services.sns.AmazonSNSAsyncClient;
 import com.amazonaws.services.sns.AmazonSNSClient;
 import com.amazonaws.services.sns.model.*;
 import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSAsyncClient;
 import com.amazonaws.services.sqs.AmazonSQSClient;
 import com.amazonaws.services.sqs.model.CreateQueueRequest;
 import com.amazonaws.services.sqs.model.CreateQueueResult;
@@ -25,9 +28,13 @@ import javax.jms.JMSException;
 import javax.jms.JMSSecurityException;
 import javax.jms.ResourceAllocationException;
 import javax.net.ssl.SSLException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Connector for SQS-only implementation of the Nevado JMS driver.
@@ -35,23 +42,38 @@ import java.util.HashSet;
  * @author Carter Page <carter@skyscreamer.org>
  */
 public class AmazonAwsSQSConnector extends AbstractSQSConnector {
-    protected final AmazonSQS _amazonSQS;
-    protected final AmazonSNS _amazonSNS;
+    private final AmazonSQS _amazonSQS;
+    private final AmazonSNS _amazonSNS;
 
     public AmazonAwsSQSConnector(String awsAccessKey, String awsSecretKey, boolean isSecure, long receiveCheckIntervalMs) {
-        super(receiveCheckIntervalMs);
+        this(awsAccessKey, awsSecretKey, isSecure, receiveCheckIntervalMs, false);
+    }
+
+    public AmazonAwsSQSConnector(String awsAccessKey, String awsSecretKey, boolean isSecure, long receiveCheckIntervalMs, boolean isAsync) {
+        super(receiveCheckIntervalMs, isAsync);
         AWSCredentials awsCredentials = new BasicAWSCredentials(awsAccessKey, awsSecretKey);
         ClientConfiguration clientConfiguration = new ClientConfiguration();
         clientConfiguration.setProtocol(isSecure ? Protocol.HTTPS : Protocol.HTTP);
-        _amazonSQS = new AmazonSQSClient(awsCredentials, clientConfiguration);
-        _amazonSNS = new AmazonSNSClient(awsCredentials, clientConfiguration);
+        if (isAsync) {
+            ExecutorService executorService = Executors.newSingleThreadExecutor();
+            _amazonSQS = new AmazonSQSAsyncClient(awsCredentials, clientConfiguration, executorService);
+            _amazonSNS = new AmazonSNSAsyncClient(awsCredentials, clientConfiguration, executorService);
+        } else {
+            _amazonSQS = new AmazonSQSClient(awsCredentials, clientConfiguration);
+            _amazonSNS = new AmazonSNSClient(awsCredentials, clientConfiguration);
+        }
     }
 
     @Override
     protected void sendSNSMessage(NevadoTopic topic, String serializedMessage) throws JMSException {
         String arn = getTopicARN(topic);
+        PublishRequest request = new PublishRequest(arn, serializedMessage);
         try {
-            _amazonSNS.publish(new PublishRequest(arn, serializedMessage));
+            if (isAsync()) {
+                ((AmazonSNSAsync)_amazonSNS).publishAsync(request);
+            } else {
+                _amazonSNS.publish(request);
+            }
         }
         catch (AmazonClientException e) {
             throw handleAWSException("Unable to send message to topic: " + arn, e);
@@ -70,14 +92,14 @@ public class AmazonAwsSQSConnector extends AbstractSQSConnector {
             throw handleAWSException("Unable to get message queue '" + queue, e);
         }
 
-        return new AmazonAwsSQSQueue(this, queue.getQueueUrl());
+        return new AmazonAwsSQSQueue(this, queue.getQueueUrl(), isAsync());
     }
 
     @Override
     public void test() throws JMSException {
         try {
             _amazonSQS.listQueues();
-            _amazonSNS.listSubscriptions();
+            _amazonSNS.listTopics();
         } catch (AmazonClientException e) {
             throw handleAWSException("Connection test failed", e);
         }
@@ -93,8 +115,14 @@ public class AmazonAwsSQSConnector extends AbstractSQSConnector {
             throw handleAWSException("Unable to list queues with prefix '" + temporaryQueuePrefix + "'", e);
         }
         queues = new HashSet<NevadoQueue>(result.getQueueUrls().size());
-        for(String queueUrl : result.getQueueUrls()) {
-            queues.add(new NevadoQueue(queueUrl));
+        for(String queueUrlString : result.getQueueUrls()) {
+            URL queueURL = null;
+            try {
+                queueURL = new URL(queueUrlString);
+            } catch (MalformedURLException e) {
+                throw new JMSException("Unable to parse URL for: " + queueUrlString);
+            }
+            queues.add(new NevadoQueue(queueURL));
         }
         return queues;
     }
