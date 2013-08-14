@@ -1,18 +1,37 @@
 package org.skyscreamer.nevado.jms;
 
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.skyscreamer.nevado.jms.connector.SQSConnector;
-import org.skyscreamer.nevado.jms.destination.*;
-
-import javax.jms.*;
-import javax.jms.IllegalStateException;
 import java.math.BigInteger;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import javax.jms.Connection;
+import javax.jms.ConnectionConsumer;
+import javax.jms.Destination;
+import javax.jms.ExceptionListener;
+import javax.jms.IllegalStateException;
+import javax.jms.InvalidClientIDException;
+import javax.jms.JMSException;
+import javax.jms.ServerSessionPool;
+import javax.jms.Topic;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.skyscreamer.nevado.jms.connector.SQSConnector;
+import org.skyscreamer.nevado.jms.destination.NevadoDestination;
+import org.skyscreamer.nevado.jms.destination.NevadoProviderQueuePrefix;
+import org.skyscreamer.nevado.jms.destination.NevadoQueue;
+import org.skyscreamer.nevado.jms.destination.NevadoTemporaryQueue;
+import org.skyscreamer.nevado.jms.destination.NevadoTemporaryTopic;
+import org.skyscreamer.nevado.jms.destination.NevadoTopic;
 
 /**
  * Nevado's implementation of JMS Connection.
@@ -20,7 +39,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author Carter Page <carter@skyscreamer.org>
  */
 public class NevadoConnection implements Connection {
-    public static final int DEFAULT_MAX_POLL_WAIT_MS = 5000;
+  public static final int DEFAULT_MAX_POLL_WAIT_MS = 6000;
     private final Log _log = LogFactory.getLog(getClass());
 
     private final AtomicBoolean _closed = new AtomicBoolean(false);
