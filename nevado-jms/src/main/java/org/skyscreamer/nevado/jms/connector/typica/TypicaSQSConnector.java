@@ -1,5 +1,24 @@
 package org.skyscreamer.nevado.jms.connector.typica;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+
+import javax.jms.JMSException;
+import javax.jms.JMSSecurityException;
+import javax.jms.ResourceAllocationException;
+import javax.net.ssl.SSLException;
+
+import org.apache.commons.lang.StringUtils;
+import org.skyscreamer.nevado.jms.connector.AbstractSQSConnector;
+import org.skyscreamer.nevado.jms.connector.SQSQueue;
+import org.skyscreamer.nevado.jms.destination.NevadoDestination;
+import org.skyscreamer.nevado.jms.destination.NevadoQueue;
+import org.skyscreamer.nevado.jms.destination.NevadoTopic;
+
 import com.xerox.amazonws.common.AWSError;
 import com.xerox.amazonws.common.AWSException;
 import com.xerox.amazonws.common.ListResult;
@@ -9,23 +28,6 @@ import com.xerox.amazonws.sns.SNSException;
 import com.xerox.amazonws.sqs2.MessageQueue;
 import com.xerox.amazonws.sqs2.QueueService;
 import com.xerox.amazonws.sqs2.SQSException;
-import org.apache.commons.lang.StringUtils;
-import org.skyscreamer.nevado.jms.connector.AbstractSQSConnector;
-import org.skyscreamer.nevado.jms.connector.SQSQueue;
-import org.skyscreamer.nevado.jms.destination.NevadoDestination;
-import org.skyscreamer.nevado.jms.destination.NevadoQueue;
-import org.skyscreamer.nevado.jms.destination.NevadoTopic;
-
-import javax.jms.JMSException;
-import javax.jms.JMSSecurityException;
-import javax.jms.ResourceAllocationException;
-import javax.net.ssl.SSLException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.UnknownHostException;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
 
 /**
  * Connector for SQS-only implementation of the Nevado JMS driver.
@@ -83,7 +85,9 @@ public class TypicaSQSConnector extends AbstractSQSConnector {
     public void test() throws JMSException {
         try {
             _queueService.listMessageQueues(null);
+      _log.debug("Listed Queues");
             _notficationService.listTopics(null);
+      _log.debug("Listed Topics");
         } catch (AWSException e) {
             throw handleAWSException("Connection test failed", e);
         }

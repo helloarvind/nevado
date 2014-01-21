@@ -61,7 +61,10 @@ public class NevadoConnection implements Connection {
 
     public NevadoConnection(SQSConnector sqsConnector) throws JMSException {
         _sqsConnector = sqsConnector;
+    long beginTestTime = System.currentTimeMillis();
         _sqsConnector.test();
+    long testSpendTime = System.currentTimeMillis() - beginTestTime;
+    _log.debug("Tested Queue" + testSpendTime);
     }
 
     @Override
