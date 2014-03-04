@@ -127,27 +127,9 @@ public class NevadoMessageConsumer implements MessageConsumer, QueueReceiver, To
     // First check for a parked message
     NevadoMessage message = null;
     if ((message = _messageParking.getAndSet(null)) == null) {
-      ExecutorService executorService = Executors.newSingleThreadExecutor();
-      Callable<NevadoMessage> callable = new Callable<NevadoMessage>() {
-        @Override
-        public NevadoMessage call() throws Exception {
-          return _session.receiveMessage(_destination, 0, _noLocal);
+      message= _session.receiveMessage(_destination, 0, _noLocal);
         }
-      };
-      Future<NevadoMessage> result = executorService.submit(callable);
-      try {
-        message = result.get(60, TimeUnit.SECONDS);
-      } catch (ExecutionException e) {
-        e.printStackTrace();
-      } catch (TimeoutException e) {
-        e.printStackTrace();
-      } catch (Exception e) {
-        e.printStackTrace();
-      } finally {
-        result.cancel(true);
-        executorService.shutdown();
-      }
-    }
+     
     if (message != null) {
       try {
         getMessageListener().onMessage(message);

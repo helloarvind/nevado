@@ -1,13 +1,6 @@
 package org.skyscreamer.nevado.jms.connector.typica;
 
 import java.util.Map;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 import javax.jms.JMSException;
 
@@ -83,32 +76,12 @@ class TypicaSQSQueue implements SQSQueue {
 
   @Override
   public void deleteMessage(final String sqsReceiptHandle) throws JMSException {
-    ExecutorService executorService = Executors.newSingleThreadExecutor();
-    Callable<Void> callable = new Callable<Void>() {
-      @Override
-      public Void call() throws Exception {
-        try {
-          _sqsQueue.deleteMessage(sqsReceiptHandle);
-        } catch (SQSException e) {
-          throw _typicaSQSConnector.handleAWSException("Unable to delete message from queue " + _sqsQueue.getUrl(), e);
-        }
-        return null;
-      }
-    };
-    Future<Void> result = executorService.submit(callable);
     try {
-      result.get(60, TimeUnit.SECONDS);
-    } catch (ExecutionException e) {
-      e.printStackTrace();
-    } catch (TimeoutException e) {
-      e.printStackTrace();
-    } catch (Exception e) {
-      e.printStackTrace();
-    } finally {
-      result.cancel(true);
-      executorService.shutdown();
+      _sqsQueue.deleteMessage(sqsReceiptHandle);
+    } catch (SQSException e) {
+      throw _typicaSQSConnector.handleAWSException("Unable to delete message from queue " + _sqsQueue.getUrl(), e);
     }
-  }
+  };
 
   @Override
   public TypicaSQSMessage receiveMessage() throws JMSException {
